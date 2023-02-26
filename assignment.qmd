@@ -183,6 +183,9 @@ impeach <- impeach %>%
 ```{r}
 
   
+impeach %>%
+  group_by(month_ann, for_impeachment) %>% 
+  summarise(n())
 
 
 
