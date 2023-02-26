@@ -50,7 +50,7 @@ impeach %>%
   summarise(n())
 
 
-
+#grouped by for impeachment than summarized
 ```
 
 2)  Similar to #1 above, using grouping to now break down the Democratic House members by TWO measures: those who are for or against impeachment (as you did above)....and then districts above/below national GDP.  
@@ -66,7 +66,7 @@ impeach %>%
   group_by(for_impeachment,gdp_above_national) %>% 
   summarise(n())
 
-
+#filtered for Dems, grouped by for impeachment and national gdp, then summarized
 ```
 
 3)  Now do the same as #2, but this time instead of GDP, group by whether the district is above or below the national average for the percentage of college graduates. The column that captures this information is `pct_bachelors_compared_to_national`.
@@ -79,7 +79,7 @@ impeach %>%
   group_by(for_impeachment,pct_bachelors_compared_to_national) %>% 
   summarise(n())
 
-
+#filtered for Dems, grouped by for impeachment and pct bachelors, then summarized.
 
 
 
@@ -103,7 +103,7 @@ impeach %>%
   summarise(mean(pct_bachelors))
 
 
-
+#filtered for Dems, grouped by for impeachment, then summarized using the mean of percent of pop w bachelors degree.
 
 
 
@@ -123,7 +123,7 @@ impeach %>%
 
 
 
-
+#filtered for Dems, grouped by for impeachment, then summarized with mean of pop that voted for Trump.
 
 
 
@@ -140,7 +140,7 @@ impeach %>%
   summarise(n())
 
 
-
+#Filtered for Dems who voted YES, grouped by 2018 margin, then summarized.
 
 
 
@@ -158,7 +158,7 @@ impeach %>%
   summarise(n())
 
 
-
+#I used this function to explore what states were most prevelent among reps voting NO on impeachment. I filtered for NO, grouped by state, and summarized.
 
 
 ```
@@ -174,7 +174,7 @@ impeach <- impeach %>%
         month_ann = month(date_announced))
 
 
-
+I made sure to use the <- function to save the change, then used mutate to create a new year and new month column from date_announced.
 
 ```
 
@@ -187,7 +187,7 @@ impeach %>%
   group_by(month_ann, for_impeachment) %>% 
   summarise(n())
 
-
+#I grouped the month and for impeachment columns, then summarized.
 
 
 
