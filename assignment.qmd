@@ -169,8 +169,9 @@ Use the mutate() function to create two new columns: one that extracts the year 
 
 ```{r}
 
-  
-
+impeach <- impeach %>%
+  mutate(year_ann = year(date_announced),
+        month_ann = month(date_announced))
 
 
 
