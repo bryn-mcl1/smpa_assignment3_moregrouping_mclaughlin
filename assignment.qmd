@@ -45,7 +45,9 @@ Write your code using grouping in the chunks below to help answer the following 
 ```{r}
 
 
-
+impeach %>% 
+  group_by(for_impeachment) %>% 
+  summarise(n())
 
 
 
@@ -59,11 +61,10 @@ You'll want to ensure you do the grouping on both columns together, e.g. `group_
 
 
 
-
-
-
-
-
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment,gdp_above_national) %>% 
+  summarise(n())
 
 
 ```
@@ -73,6 +74,10 @@ You'll want to ensure you do the grouping on both columns together, e.g. `group_
 ```{r}
 
 
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment,pct_bachelors_compared_to_national) %>% 
+  summarise(n())
 
 
 
@@ -92,7 +97,10 @@ In other words, you want to end up with the calculated mean for what that percen
 ```{r}
 
 
-
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment) %>% 
+  summarise(mean(pct_bachelors))
 
 
 
@@ -107,6 +115,10 @@ The relevant column for that is `trump_percent`.
 ```{r}
 
 
+impeach %>% 
+  filter(party == "D") %>% 
+  group_by(for_impeachment) %>% 
+  summarise(mean(trump_percent))
 
 
 
@@ -122,7 +134,10 @@ The relevant column for that is `trump_percent`.
 ```{r}
 
   
-
+impeach %>% 
+  filter(party == "D", for_impeachment == "YES" ) %>% 
+  group_by(margin_flag_2018) %>% 
+  summarise(n())
 
 
 
@@ -135,9 +150,12 @@ The relevant column for that is `trump_percent`.
 
 ```{r}
 
-  
+#I want to look at the state breakdown of reps who voted no on impeachment.
 
-
+impeach %>% 
+  filter(for_impeachment=="NO") %>% 
+  group_by(state) %>% 
+  summarise(n())
 
 
 
@@ -152,8 +170,6 @@ Use the mutate() function to create two new columns: one that extracts the year 
 ```{r}
 
   
-
-
 
 
 
